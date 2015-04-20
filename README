@@ -1,0 +1,10 @@
+Build:
+    mkdir build
+    cd build
+    cmake ..
+    make
+
+Run:
+    ./utcak ../map.osm
+
+Pl a map.osm letoltheto innen: http://download.geofabrik.de/europe/hungary.html
