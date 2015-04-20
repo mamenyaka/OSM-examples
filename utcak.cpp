@@ -1,11 +1,11 @@
 /*
  * utcak.cpp
- * This is a simple program that prints the street names from the input file.
+ * This is a simple program that prints the streets from the input file.
  */
 
 #include <osmium/memory/buffer.hpp>
 #include <osmium/io/any_input.hpp>
-#include <osmium/osm/way.hpp>
+#include <osmium/osm.hpp>
 
 #include <iostream>
 
@@ -27,12 +27,14 @@ int main(int argc, char* argv[])
 
       const char* name = way.get_value_by_key("name");
       const char* highway = way.get_value_by_key("highway");
+
       if (name && highway)
-        std::cout << "[" << way.user() << "] " << name << std::endl;
+        std::cout << "[" << way.user() << "] " << name << " "
+                  << "(" << highway << ")" << std::endl;
     }
   }
 
   google::protobuf::ShutdownProtobufLibrary();
-  
+
   return 0;
 }
