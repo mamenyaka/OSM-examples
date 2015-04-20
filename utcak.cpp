@@ -29,8 +29,10 @@ int main(int argc, char* argv[])
       const char* highway = way.get_value_by_key("highway");
 
       if (name && highway)
+      {
         std::cout << "[" << way.user() << "] " << name << " "
                   << "(" << highway << ")" << std::endl;
+      }
     }
   }
 
