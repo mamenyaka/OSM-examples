@@ -1,6 +1,6 @@
 /*
  * buszjarat.cpp
- * This is a simple program that prints the bus stop names and coordinates from the input file.
+ * This is a simple program that prints the bus routes from the input file.
  */
 
 #include <osmium/memory/buffer.hpp>
@@ -45,22 +45,28 @@ int main(int argc, char* argv[])
         const char *from = relation.get_value_by_key("from", "");
         const char *to = relation.get_value_by_key("to", "");
 
-        std::cout << ref << " (" << from << " -> " << to << ") - " << relation.user() << std::endl;
+        std::cout << "[" << relation.user() << "] " << ref << " "
+                  << "(" << from << " -> " << to << ")" << std::endl;
 
         for (const auto& member : relation.members())
         {
-          if (member.type() == osmium::item_type::node && !strncmp(member.role(), "stop", 4))
+          if (member.type() == osmium::item_type::node &&
+              !strncmp(member.role(), "stop", 4))
           {
             try
             {
               const size_t offset = node_index.get(member.positive_ref());
               const osmium::Node &node = buffer.get<const osmium::Node>(offset);
 
-              std::cout << node.get_value_by_key("name", "none") << " " << node.location() << " - " << node.user() << std::endl;
+              const char* name = node.get_value_by_key("name", "none");
+
+              std::cout << "  ";
+              std::cout << "[" << node.user() << "] " << name << " "
+                        << node.location() << std::endl;
             }
             catch (std::runtime_error& e)
             {
-              std::cout << e.what() << std::endl;
+              std::cerr << e.what() << std::endl;
             }
           }
         }
