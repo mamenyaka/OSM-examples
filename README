@@ -1,0 +1,10 @@
+Build:
+    mkdir build
+    cd build
+    cmake ..
+    make
+
+Run:
+    ./buszjarat ../map.osm
+
+A map.osm letoltheto (Export) innen: http://www.openstreetmap.org/export#map=13/47.5329/21.6423
