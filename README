@@ -7,4 +7,4 @@ Build:
 Run:
     ./utcak ../map.osm
 
-Pl a map.osm letoltheto innen: http://download.geofabrik.de/europe/hungary.html
+A map.osm letoltheto (Export) innen: http://www.openstreetmap.org/export#map=13/47.5329/21.6423
