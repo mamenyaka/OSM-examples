@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
     {
       const osmium::Node& node = static_cast<const osmium::Node&>(item);
 
-      node_index.set(node.positive_id(), m_offset);
+      node_index.set(node.positive_id(), offset);
       offset += node.byte_size();
     }
     else if (item.type() == osmium::item_type::relation)
