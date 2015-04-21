@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
   osmium::memory::Buffer buffer = osmium::io::read_file(argv[1]);
 
   offset_index_type node_index;
-  size_t m_offset = 0;
+  size_t offset = 0;
 
   for (const auto& item : buffer)
   {
@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
       const osmium::Node& node = static_cast<const osmium::Node&>(item);
 
       node_index.set(node.positive_id(), m_offset);
-      m_offset += node.byte_size();
+      offset += node.byte_size();
     }
     else if (item.type() == osmium::item_type::relation)
     {
