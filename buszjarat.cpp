@@ -41,9 +41,9 @@ int main(int argc, char* argv[])
       const char* route = relation.get_value_by_key("route", "");
       if (!strncmp(route, "bus", 3))
       {
-        const char *ref = relation.get_value_by_key("ref", "");
-        const char *from = relation.get_value_by_key("from", "");
-        const char *to = relation.get_value_by_key("to", "");
+        const char* ref = relation.get_value_by_key("ref", "");
+        const char* from = relation.get_value_by_key("from", "");
+        const char* to = relation.get_value_by_key("to", "");
 
         std::cout << "[" << relation.user() << "] " << ref << " "
                   << "(" << from << " -> " << to << ")" << std::endl;
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
             try
             {
               const size_t offset = node_index.get(member.positive_ref());
-              const osmium::Node &node = buffer.get<const osmium::Node>(offset);
+              const osmium::Node& node = buffer.get<const osmium::Node>(offset);
 
               const char* name = node.get_value_by_key("name", "none");
 
