@@ -8,6 +8,7 @@ Build:
     make
 
 Run:
+    ./utcak ../map.osm
     ./buszjarat ../map.osm
 
 map.osm:
